@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="heading">My Todo List</h1>
+      <input type="text" id="input" placeholder="Type your Todo List.." />
+      <button class="addBtn" onclick="addTodoItem()">Add Todo</button>
+    </div>
+    <ul id="todoList">
+      <li input type="checkbox" onclick="toggleChecked(event)">Go running</li>
+      <li>Code</li>
+      <li>Eat healthy</li>
+      <li>DSA Questions</li>
+    </ul>
+    <p id="taskCount">Total todos: 0 | Completed todos: 0</p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
