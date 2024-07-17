@@ -29,6 +29,17 @@ function toggleChecked(event) {
   updateTaskCount();
 }
 
+function addCloseHandler(close) {
+  close.onclick = function () {
+    var div = this.parentElement;
+    div.style.display = "none";
+    setTimeout(() => {
+      div.remove();
+      updateTaskCount();
+    }, 1000);
+  };
+}
+
 // Adding new todo llist items
 function addTodoItem() {
   var ulItem = document.getElementById("todoList");
@@ -49,21 +60,16 @@ function addTodoItem() {
   } else {
     ulItem.appendChild(listItem);
   }
-  input.value = "";
-  updateTaskCount();
+
   var span = document.createElement("span");
   var text = document.createTextNode("X");
   span.className = "close";
   span.appendChild(text);
   listItem.appendChild(span);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-      var div = this.parentElement;
-      div.style.display = "none";
-    };
-    updateTaskCount();
-  }
+  addCloseHandler(span);
+
+  input.value = "";
   updateTaskCount();
 }
 
