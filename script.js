@@ -1,5 +1,6 @@
 const listItems = document.getElementsByTagName("li");
 
+// Applying close button to the list items
 var i;
 for (i = 0; i < listItems.length; i++) {
   var span = document.createElement("span");
@@ -9,6 +10,7 @@ for (i = 0; i < listItems.length; i++) {
   listItems[i].appendChild(span);
 }
 
+// Removing list item(s) on clicking the close button
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
@@ -27,6 +29,7 @@ function toggleChecked(event) {
   updateTaskCount();
 }
 
+// Adding new todo llist items
 function addTodoItem() {
   var ulItem = document.getElementById("todoList");
   var listItem = document.createElement("li");
@@ -64,6 +67,7 @@ function addTodoItem() {
   updateTaskCount();
 }
 
+// Updating total todo items based on total todos present and tasks completed
 function updateTaskCount() {
   const totalTasks = document.getElementById("todoList").children.length;
   const completedTasks = document.querySelectorAll("#todoList .checked").length;
@@ -71,6 +75,8 @@ function updateTaskCount() {
     "taskCount"
   ).innerText = `Total tasks: ${totalTasks} | Completed tasks: ${completedTasks}`;
 }
+
+// Applying checkbox on the list items
 for (var i = 0; i < listItems.length; i++) {
   var checkbox = document.createElement("input");
   checkbox.type = "checkbox";
